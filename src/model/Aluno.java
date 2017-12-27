@@ -18,7 +18,6 @@ public class Aluno extends Pessoa {
     private Historico historico1;
     private Historico historico2;
     private Historico historico3;
-    
 
     public Aluno(String nome, int cpf, int telefone, int id) {
         super(nome, cpf, telefone, id);
@@ -28,51 +27,6 @@ public class Aluno extends Pessoa {
     public String toString() {
         return ("Aluno: id: " + id + " Nome: " + this.nome + ", CPF: " + cpf + ", Telefone: " + telefone + " Matricula: " + getMatricula() + "; \n");
     }
-
-//    public Disciplinas getDisciplinasCursando(int i) {
-//        return DisciplinasCursando.get(i);
-//    }
-//
-//    public void setDisciplinasCursando(ArrayList<Disciplinas> DisciplinasCursando) {
-//        this.DisciplinasCursando = DisciplinasCursando;
-//    }
-//
-//    public boolean cadastrarDisciplina(Disciplinas disciplinas) {
-//
-//// Condicao de existÃªncia
-//        if (this.DisciplinasCursando.size() < this.MAX) {
-//            this.DisciplinasCursando.add(disciplinas);
-//            return true;
-//        }
-//        return false;
-//    }
-//    public void listarDisciplinas() {
-//        for (int i = 0; i < this.DisciplinasCursando.size(); i++) {
-//            System.out.println("Disciplina " + (i + 1) + ": " + this.DisciplinasCursando.get(i).getNome());
-//        }
-//
-//    }
-//
-//    public void alterarNota(String nomeDisciplina, float novaNota) {
-//        int a = 0;
-//        for (int i = 0; i < this.DisciplinasCursando.size(); i++) // i vai aumentar até o nome da disciplina se o que se quer
-//        {
-//            if (this.DisciplinasCursando.get(i).getNome() == nomeDisciplina) {
-//                a = i;
-//                break;
-//            }
-//        }
-//
-//        this.DisciplinasCursando.get(a).setNotaAluno(novaNota); //retorna a disciplina
-//    }
-//    public ArrayList<Notas> getNotas() {
-//        return notas;
-//    }
-//
-//    public void setNotas(ArrayList<Notas> notas) {
-//        this.notas = notas;
-//    }
-
 
     public ArrayList<Historico> getHistorico() {
         return historico;
@@ -103,21 +57,18 @@ public class Aluno extends Pessoa {
     }
 
     public Disciplinas GetHistoorico1(Disciplinas disciplina) {
-      return disciplina;
-        
-    
-    }
-    public Disciplinas GetHistoorico2(Disciplinas disciplina) {
-      return disciplina;
-        
-    
-    }
-    public Disciplinas GetHistoorico3(Disciplinas disciplina) {
-      return disciplina;
-        
-    
+        return disciplina;
+
     }
 
-    
+    public Disciplinas GetHistoorico2(Disciplinas disciplina) {
+        return disciplina;
+
+    }
+
+    public Disciplinas GetHistoorico3(Disciplinas disciplina) {
+        return disciplina;
+
+    }
 
 }

@@ -11,7 +11,7 @@ package model;
  */
 public class Professor extends Pessoa {
 
-    private Turma slotTurma1 = null, slotTurma2 = null;
+    private Turma slotTurma1 = null, slotTurma2 = null; // slots das turmas como null para ser comparado
 
     public Professor(String nome, int cpf, int telefone, int id) {
         super(nome, cpf, telefone, id);

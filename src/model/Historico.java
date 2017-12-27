@@ -20,7 +20,6 @@ public class Historico {
     private double[] notas = new double[2];
     private double media;
     private int id;
-    private int add;
 
     /**
      *
@@ -30,7 +29,6 @@ public class Historico {
      */
     public Historico(Disciplinas disciplina, int id) {
         this.id = id;
-        this.add = 0;
         this.disciplina = disciplina;
         this.notas[0] = 0;
         this.notas[1] = 0;
@@ -52,14 +50,12 @@ public class Historico {
     }
 
     public void adicionarNota() {
-        Scanner x = new Scanner(System.in);
         for (int i = 0; i < 2; i++) {
             System.err.println("Digite a "+i+"° nota");
             this.notas[i] = verifica();
         }
     }
     
-
     public double[] getNotas() {
         return notas;
     }

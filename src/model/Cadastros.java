@@ -106,14 +106,9 @@ public class Cadastros {
 
     }
 
-    public void listarAlunos() { //fun��o para imprimir as pessoas cadastrada a partir do cpf (nao funcional)
+    public void listarAlunos() { //fun��o para imprimir os alunos cadastrados
         System.out.println("Alunos: \n");
-        if (alunosCadastradas.size() > 0) {//caso não existam alunos cadastrados
-//        Iterator<Aluno> it = alunosCadastradas.iterator();
-//        while (it.hasNext()) { //Enquanto it "tem proximo", continue
-//            System.out.println("Aluno "+b+":"+it.next().getNome() + "\n");
-//            
-//            b++;
+        if (alunosCadastradas.size() > 0) {
             System.out.println(Arrays.toString(alunosCadastradas.toArray()));
         } else {
             System.err.println("Não existem alunos cadastrados");
@@ -147,23 +142,7 @@ public class Cadastros {
     }
 
     public void cadastrarDisciplinas() {
-        /*public static void criarDisciplina(){
-        System.out.println("Informe o nome da disciplina: ");
-        String nome = s.nextLine();
-        boolean existe = false;
-        for(Disciplina a : disciplinas){
-            if(a.getNome().equalsIgnoreCase(nome)){
-                System.out.println("Disciplina já existe!");   
-                existe = true;
-                break;
-            }
-        } if(existe==false){
-            Disciplina disciplina = new Disciplina(nome);        
-             disciplinas.add(disciplina);
-             System.out.println("Disciplina criada!");
-        }
-    }
-         */
+
         ler = new Scanner(System.in);
         System.out.println("digite o nome: \n");
         String nome = ler.next();
@@ -186,36 +165,6 @@ public class Cadastros {
         }
 
     }
-//    public void cadastrarDisciplinas() {
-//        
-//        ler = new Scanner(System.in);
-//        System.out.println("digite o nome: \n");
-//        String nomes = ler.next();
-//        System.out.println("digite a carga orária: \n");
-//        int cargaH = ler.nextInt();
-//
-//        int a = 0; // int para interromper a verifica��o do cadastro
-//        if (disciplinasCadastradas.size() > 0) {//caso não existam disciplinas cadastrados
-//            Iterator<Disciplinas> it = disciplinasCadastradas.iterator();
-//            while (it.hasNext()) { //Enquanto it "tem proximo", continue
-//                if (it.next().getNome().equals(nomes)){
-//                    System.err.println("Essa disciplina já foi cadastrada");
-//                } else {
-//                    while (a == 0) { // compara�ao de strings
-//                        disciplinasCadastradas.add(new Disciplinas(nomes, cargaH));
-//                        System.out.println("CADASTRO CONCLU�DO! \n");
-//                        a++;
-//                    }
-//                }
-//
-//            }
-//        } else {
-//            disciplinasCadastradas.add(new Disciplinas(nomes, cargaH));
-//            System.out.println("CADASTRO CONCLU�DO! \n");
-//            a++;
-//        }
-//
-//    }
 
     public void excluirDisciplina() { //funncaoo para excluir disciplinas cadastradas de acordo com o nome
         ler = new Scanner(System.in);
@@ -223,8 +172,7 @@ public class Cadastros {
         String nome = ler.next();
 
         for (int i = 0; i < disciplinasCadastradas.size(); i++) {
-            if (disciplinasCadastradas.get(i).getNome().equals(nome)) {
-//pega o indice i do objeo pessoa, pega o id da pessoa e compara com o id da pessoa digitada
+            if (disciplinasCadastradas.get(i).getNome().equals(nome)) {//pega o indice i do objeo pessoa, pega o id da pessoa e compara com o id da pessoa digitada
                 disciplinasCadastradas.remove(i); //Remove a pessoa do tipo nome com o indice i
                 System.err.println("Disciplina removida");
             }
@@ -244,130 +192,7 @@ public class Cadastros {
 
     }
 
-    public void criarTurma() {// não funcional
-        ler = new Scanner(System.in);
-        int k = 0, l = 0;
-        System.out.println("digite o nome da turma: \n");
-        String nome = ler.next();
-        System.out.println("digite o nome do professor á ser adicionado á turma: \n");
-        String nomeProf = ler.next();
-
-        for (int i = 0; i < professoresCadastrados.size(); i++) {
-            if (professoresCadastrados.get(i).getNome().equals(nomeProf)) {
-//pega o indice i do objeo pessoa, pega o id da pessoa e compara com o id da pessoa digitada
-                professoresCadastrados.get(i); //Remove a pessoa do tipo nome com o indice i
-                k = i;
-            }
-        }
-
-        System.out.println("digite o nome da disciplina á ser adicionada á turma: \n");
-        String nomeDis = ler.next();
-        for (int i = 0; i < disciplinasCadastradas.size(); i++) {
-            if (disciplinasCadastradas.get(i).getNome().equals(nomeDis)) {
-//pega o indice i do objeo pessoa, pega o id da pessoa e compara com o id da pessoa digitada
-                disciplinasCadastradas.get(i); //Remove a pessoa do tipo nome com o indice i
-                l = i;
-            }
-        }
-
-        int a = 0; // int para interromper a verifica��o do cadastro
-
-        while (a == 0) { // compara�ao de strings
-
-            turmasCadastradas.add(new Turma(disciplinasCadastradas.get(l), professoresCadastrados.get(k), nome));
-            System.out.println("CADASTRO CONCLU�DO! \n");
-            a++;
-        }
-    }
-
-    /*
-        
-        ler = new Scanner(System.in);
-        boolean existe = false, existe2 = false;
-        long mat; 
-        String discNome;
-        System.out.println("Para criar uma turma, informe a matrícula do professor responsável:");
-        do{
-            try{
-                mat = Long.parseLong(ler.nextLine());
-                break;
-            }catch(NumberFormatException e){
-                System.out.println("Matrícula deve conter apenas números. Tente novamente:");
-            }
-        }while(true);
-        if(existeProf(mat)){
-            if(getProfMat(mat).getTurma1()==null){
-                System.out.println("Informe a disciplina: ");
-                discNome = ler.nextLine();
-                if(existeDisci(discNome)){
-                    //
-                }     
-        int k = 0, l = 0;
-        System.out.println("digite o nome da turma: \n");
-        String nome = ler.next();
-                }
-                    Turma turma = new Turma(getDisci(discNome), getProfMat(mat), nome);
-                    turmasCadastradas.add(turma);
-                    getProfMat(mat).setTurma1(turma);
-                    System.out.println("Alunos no banco de dados:");
-                    for(Aluno a : alunosCadastradas){
-                        System.out.println(a.getMatricula()+" - "+a.getNome());
-                    }
-                    do{
-                        System.out.println("Para continuar matricule pelo menos 2 alunos. Informe a matrícula do aluno desejado:");
-                        do{
-                            do{
-                                    try{
-                                        mat = Long.parseLong(s.nextLine());
-                                        break;
-                                    }catch(NumberFormatException e){
-                                        System.out.println("Matrícula deve conter apenas números. Tente novamente:");
-                                    }
-                            }while(true);
-                        }while(verificaAluno(mat)==false);
-                        turma.setAlunoemTurma(getByMat(mat));
-                    }while(turma.getAlunos().size()<2);
-                    
-                }else{
-                    System.out.println("Disciplina não existe.");
-                }
-            }else if(getProfMat(mat).getTurma2()==null){
-                System.out.println("Informe a disciplina: ");
-                discNome = s.nextLine();
-                if(existeDisci(discNome)){
-                    Turma turma = new Turma(getDisci(discNome), getProfMat(mat));
-                    turmas.add(turma);
-                    getProfMat(mat).setTurma2(turma);
-                    System.out.println("Alunos no banco de dados:");
-                    for(Aluno a : alunos){
-                        System.out.println(a.getMatricula()+" - "+a.getNome());
-                    }
-                    do{
-                        System.out.println("Para continuar matricule pelo menos 2 alunos. Informe a matrícula do aluno desejado:");
-                        do{
-                            do{
-                                    try{
-                                        mat = Long.parseLong(s.nextLine());
-                                        break;
-                                    }catch(NumberFormatException e){
-                                        System.out.println("Matrícula deve conter apenas números. Tente novamente:");
-                                    }
-                            }while(true);
-                        }while(verificaAluno(mat)==false);
-                        turma.setAlunoemTurma(getByMat(mat));
-                    }while(turma.getAlunos().size()<2);
-                    
-                }else{
-                    System.out.println("Disciplina não existe.");
-                }
-            }else{
-                System.out.println("Professor já está com o número de turmas máximo.");
-            }
-        }else{
-            System.out.println("Professor não matrículado.");
-        }
-     */
-    public void cadastrarTurma() {
+    public void criarTurma() {
         int matricula;
         String nomeDis;
         System.out.println("Para criar uma turma, informe a matrícula do professor responsável:\n");
@@ -439,12 +264,6 @@ public class Cadastros {
         }
     }
 
-//    public boolean profEx(int matricula) { // verifica se o professor existe
-//        if (professoresCadastrados.stream().anyMatch((d) -> (d.getMatricula() == matricula))) {
-//            return true;
-//        }
-//        return false;
-//    }
     public boolean profEx(long mat) {
         // verifica se o professor existe
         return professoresCadastrados.stream().anyMatch((a) -> (a.getMatricula() == mat));
@@ -501,8 +320,7 @@ public class Cadastros {
         String nome = ler.next();
         if (turmasCadastradas.size() > 0) {//caso não existam turmas cadastrados
             for (int i = 0; i < turmasCadastradas.size(); i++) {
-                if (turmasCadastradas.get(i).getNome().equals(nome)) {
-//pega o indice i do objeo pessoa, pega o id da pessoa e compara com o id da pessoa digitada
+                if (turmasCadastradas.get(i).getNome().equals(nome)) {//pega o indice i do objeo pessoa, pega o id da pessoa e compara com o id da pessoa digitada
                     turmasCadastradas.remove(i); //Remove a pessoa do tipo nome com o indice i
                 }
             }
@@ -520,35 +338,13 @@ public class Cadastros {
         }
 
     }
-
-//    public void adicionarProfessorTurma() { // nao está funcinanddo
-//        ler = new Scanner(System.in);
-//        System.out.println("digite o nome da turma que deseja adicionar o professor");
-//        String nome = ler.next();
-//
-//        for (int i = 0; i < turmasCadastradas.size(); i++) {
-//            if (turmasCadastradas.get(i).getNome().equals(nome)) {//pega a turma com o id I
-//
-//                System.out.println("digite o nome do professor que deseja adicionar a turma");
-//                String nome2 = ler.next();
-//                for (int j = 0; j < professoresCadastrados.size(); j++) {
-//                    if (professoresCadastrados.get(j).getNome().equals(nome)) {
-//                        //     turmasCadastradas.add(professoresCadastrados);
-//
-//                    }
-//                }
-//            }
-//
-//        }
-//    }
+    
     public void condicoes() {
 
         try {
             ler = new Scanner(System.in);
             String nome = ler.next();
-// aqui dentro fica a parte de pegar todos os valores inteiros
-        } catch (NumberFormatException e) {
-// ocorre se usuario digitar um valor que não seja numero
+        } catch (NumberFormatException e) {// ocorre se usuario digitar um valor que não seja numero
             System.err.println("Digite somente numeros.");
         }
 
@@ -570,7 +366,7 @@ public class Cadastros {
         return valor;
     }
 
-    public void adicionaAlunoaTurma() {
+    public void adicionaAlunoaTurma() { // adiciona aluno á turma
 
         ler = new Scanner(System.in);
         System.err.println("\n Digite o nome da turma \n ");
@@ -588,14 +384,11 @@ public class Cadastros {
 
                 } while (verificaAluno(matricula) == false);
                 turmasCadastradas.get(i).setAlunodaTurma(getPelaMat(matricula));
-
             }
         }
-        // getTurmaId(id).setAlunoemTurma(MetodosGerais.getByMat(mat))
-
     }
 
-    public void adicionaNotaAluno() {
+    public void adicionaNotaAluno() { //adiciona nota as disciplinas do aluno
         double[] notas = new double[2];
         double matAlu;
         String nomeDis;
@@ -612,19 +405,12 @@ public class Cadastros {
             System.err.println("\n Digite o nome da disciplina\n");
             listarDisciplinas();
             nomeDis = ler.next();
-            for (j = 0; j < disciplinasCadastradas.size(); j++) {
-                if (disciplinasCadastradas.get(j).getNome().equals(nomeDis)) {
+            for (j = 0; j < disciplinasCadastradas.size(); j++) {// le a disciplina do aluno
+                if (disciplinasCadastradas.get(j).getNome().equals(nomeDis)) {//verifica se o aluno já está com nota nessa disciplina
                     testeDis = false;
                     b = j;
                 }
-
             }
-//            for (k = 0; k < 3; k++) {
-//                if (historicos.get(k).getDisciplina() == null) {
-//                    testeDis3 = true;
-//                    c = k;
-//                }
-//            }
 
             if (alunosCadastradas.isEmpty()) {
                 break;
@@ -636,7 +422,7 @@ public class Cadastros {
             } else if (testeDis) {
                 System.err.println("\nNão existe disciplina com esse id\n");
                 break;
-            } else if (alunosCadastradas.get(a).getHistorico().size() >= 3) {
+            } else if (alunosCadastradas.get(a).getHistorico().size() >= 3) { // verifica se o aluno j´está cadastrado em mais de 3 turmas
                 System.err.println("\nO aluno já está cadastrado em 3 disciplinas\n");
                 break;
             } else if (testeDis3) {
@@ -644,46 +430,54 @@ public class Cadastros {
                 break;
             } else {
                 idd();
-                Historico historico = new Historico(disciplinasCadastradas.get(b), id);
+                
+                Historico historico = new Historico(disciplinasCadastradas.get(b), id);// cria o array de historico com as disciplinas cadastradas
+                
                 historicos.add(historico);
-                if (alunosCadastradas.get(a).getHistorico1() == null) {
+                
+                if (alunosCadastradas.get(a).getHistorico1() == null) { //verifica se o slot 1 das disciplinas do aluno está vazia
 
-                    alunosCadastradas.get(a).setHistorico1(historicos.get(0));
-                    for (int d = 0; d < 2; d++) {
+                    alunosCadastradas.get(a).setHistorico1(historicos.get(0)); //pega o historico 0 do array de historicos e atribui a disciplina a ele
+                    
+                    for (int d = 0; d < 2; d++) { //adicionar notas
 
                         System.err.println("\nDigite a " + d + "° nota\n");
                         notas[d] = ler.nextDouble();
 
                     }
                     historicos.get(0).setNotas(notas);
+                    
                     System.err.println("\nNotas cadastradas\n");
-                    //xd=1;//adiciona para pegar a media sem precisar de laços depois
-                    break;
-                } else if (alunosCadastradas.get(a).getHistorico2() == null) {
 
-                    alunosCadastradas.get(a).setHistorico2(historicos.get(1));
-                    for (int d = 0; d < 2; d++) {
+                    break;
+                    
+                } else if (alunosCadastradas.get(a).getHistorico2() == null) { //verifica se o slot 2 das disciplinas do aluno está vazia
+
+                    alunosCadastradas.get(a).setHistorico2(historicos.get(1));//pega o historico 1 do array de historicos e atribui a disciplina a ele
+                    
+                    for (int d = 0; d < 2; d++) {//atribui notas
 
                         System.err.println("\nDigite a " + d + "° nota\n");
                         notas[d] = ler.nextDouble();
 
                     }
                     historicos.get(1).setNotas(notas);
+                    
                     System.err.println("\nNotas cadastradas\n");
-                    // xd1=1;//adiciona para pegar a media sem precisar de laços depois
+                    
                     break;
-                } else if (alunosCadastradas.get(a).getHistorico3() == null) {
+                } else if (alunosCadastradas.get(a).getHistorico3() == null) {//verifica se o slot 3 das disciplinas do aluno está vazia
 
-                    alunosCadastradas.get(a).setHistorico3(historicos.get(2));
-                    for (int d = 0; d < 2; d++) {
+                    alunosCadastradas.get(a).setHistorico3(historicos.get(2));//pega o historico 2 do array de historicos e atribui a disciplina a ele
+                    for (int d = 0; d < 2; d++) { 
                         int l = d + 1;
                         System.err.println("\nDigite a " + l + "° nota\n");
                         notas[d] = ler.nextDouble();
 
                     }
-                    historicos.get(2).setNotas(notas);
+                    historicos.get(2).setNotas(notas); //atribuir notas
                     System.err.println("\n Notas cadastradas\n");
-                    //xd2=1;//adiciona para pegar a media sem precisar de laços depois
+
                     break;
                 } else {
                     System.err.println("O aluno já tem nota em 3 disciplinas");
@@ -695,43 +489,43 @@ public class Cadastros {
 
     }
 
-    public void mostrarNota() {
+    public void mostrarNota() { //mostra nota do aluno
         int matAlu, a;
         String nome = null;
         System.err.println("\n Digite a matricula do aluno:\n");
         listarAlunos();
         matAlu = verifica();
-        if (alunosCadastradas.isEmpty()) {
+        if (alunosCadastradas.isEmpty()) { // verifica se exietem alunos cadastrados
             System.err.println("\nNão existem alunos cadastrados\n");
 
         } else {
 
             for (int i = 0; i < alunosCadastradas.size(); i++) {
-                if (alunosCadastradas.get(i).getMatricula() == matAlu) {
+                if (alunosCadastradas.get(i).getMatricula() == matAlu) { // pega o aluno pela matricula pre digitada
                     a = i;
-                    if (disciplinasCadastradas.isEmpty()) {
+                    if (disciplinasCadastradas.isEmpty()) {//verifica se exietem disciplinas cadastradas
                         System.err.println("\n Não existem disciplinas cadastradas.\n");
                         break;
                     } else {
                         System.err.println("\n Digite a disciplina:\n");
                         listarDisciplinas();
                         nome = ler.next();
-                        if (historicos.isEmpty()) {
+                        if (historicos.isEmpty()) { //verifica se existem disciplinas com notas cadastradas no historico
                             System.err.println("Não existem notas cadastradas");
                         } else {
 
-                            for (Disciplinas disciplinasCadastrada : disciplinasCadastradas) {
-                                if (alunosCadastradas.get(a).GetHistoorico1(historicos.get(0).getDisciplina()).getNome().equals(nome)) {
+                            for (Disciplinas disciplinasCadastrada : disciplinasCadastradas) {//roda todo os historicos
+                                if (alunosCadastradas.get(a).GetHistoorico1(historicos.get(0).getDisciplina()).getNome().equals(nome)) { //verifica se o historico de slot 0 tem nota e pega as notas dele
                                     System.out.println("Nota 1: " + alunosCadastradas.get(a).getHistorico1().getNota1());
                                     System.out.println("Nota 2: " + alunosCadastradas.get(a).getHistorico1().getNota2());
                                     System.err.println("h1");
                                     break;
-                                } else if (alunosCadastradas.get(a).GetHistoorico2(historicos.get(1).getDisciplina()).getNome().equals(nome)) {
+                                } else if (alunosCadastradas.get(a).GetHistoorico2(historicos.get(1).getDisciplina()).getNome().equals(nome)) { //verifica se o historico de slot 1 tem nota e pega as notas dele
                                     System.out.println("Nota 1: " + alunosCadastradas.get(a).getHistorico2().getNota1());
                                     System.out.println("Nota 2: " + alunosCadastradas.get(a).getHistorico2().getNota2());
                                     System.err.println("h2");
                                     break;
-                                } else if (alunosCadastradas.get(a).GetHistoorico3(historicos.get(2).getDisciplina()).getNome().equals(nome)) {
+                                } else if (alunosCadastradas.get(a).GetHistoorico3(historicos.get(2).getDisciplina()).getNome().equals(nome)) { //verifica se o historico de slot 3 tem nota e pega as notas dele
                                     System.out.println("Nota 1: " + alunosCadastradas.get(a).getHistorico3().getNota1());
                                     System.out.println("Nota 2: " + alunosCadastradas.get(a).getHistorico3().getNota2());
                                     System.err.println("h3");
@@ -747,35 +541,35 @@ public class Cadastros {
         }
     }
 
-    public void mediaGeral() {
+    public void mediaGeral() {//pega a media geral do aluno
         int matAlu, a;
         double media = 0;
 
         System.err.println("\n Digite a matricula do aluno:\n");
         listarAlunos();
         matAlu = verifica();
-        if (!alunosCadastradas.isEmpty()) {
-            if (!historicos.isEmpty()) {
+        if (!alunosCadastradas.isEmpty()) {//verifica se existem alunos cadastrados
+            if (!historicos.isEmpty()) {//verifica se existem notas cadastradas
                 for (int i = 0; i < alunosCadastradas.size(); i++) {
-                    if (alunosCadastradas.get(i).getMatricula() == matAlu) {
+                    if (alunosCadastradas.get(i).getMatricula() == matAlu) {//pega o aluno com a matricula digitada
                         a = i;
 
-                        if (alunosCadastradas.get(a).getHistorico1() != null) {
+                        if (alunosCadastradas.get(a).getHistorico1() != null) {// verifica se o slot 1 do histirico está vazio, se não estiver, pega as duas notas dele, soma, divide por 2 e atribui á variavel kkk
                             kkk = (alunosCadastradas.get(a).getHistorico1().getNota1() + alunosCadastradas.get(a).getHistorico1().getNota2()) / 2;
-                            xd = 1;
+                            xd = 1; //contador para ver quantas disciplinas com notas estão cadastradas
                         }
-                        if (alunosCadastradas.get(a).getHistorico2()!= null) {
+                        if (alunosCadastradas.get(a).getHistorico2() != null) {// verifica se o slot 2 do histirico está vazio, se não estiver, pega as duas notas dele, soma, divide por 2 e atribui á variavel kkk1
                             kkk1 = (alunosCadastradas.get(a).getHistorico2().getNota1() + alunosCadastradas.get(a).getHistorico2().getNota2()) / 2;
-                            xd1 = 1;
+                            xd1 = 1; // contador para ver quantas disciplinas com notas estao cadastradas
 
                         }
-                        if (alunosCadastradas.get(a).getHistorico3()!= null) {
+                        if (alunosCadastradas.get(a).getHistorico3() != null) {// verifica se o slot 3 do histirico está vazio, se não estiver, pega as duas notas dele, soma, divide por 2 e atribui á variavel kkk2
                             kkk2 = (alunosCadastradas.get(a).getHistorico3().getNota1() + alunosCadastradas.get(a).getHistorico3().getNota2()) / 2;
-                            xd2 = 1;
+                            xd2 = 1; // contador para ver quantas disciplinas estao com notas cadastradas
 
                         }
                         System.err.println("\n Media geral: \n");
-                        System.err.println((kkk + kkk1 + kkk2) / (xd + xd1 + xd2));
+                        System.err.println((kkk + kkk1 + kkk2) / (xd + xd1 + xd2));// soma todas as medias de cada disciplina e divide pelo contados da quantidade de disciplinas com notas cadastradas
                     }
                 }
 
@@ -784,7 +578,7 @@ public class Cadastros {
             }
 
         }
-        kkk = kkk1 = kkk2 = 0;
-        xd = xd1 = xd2 = 0;
+        kkk = kkk1 = kkk2 = xd = xd1 = xd2 = 0;//zera os contadores
+        
     }
 }

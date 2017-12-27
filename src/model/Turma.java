@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class Turma {
 
-    private String nome;
+    private final String nome;
     private boolean status = false;
-    private ArrayList<Aluno> AlunosDaTurma = new ArrayList<Aluno>();
+    private ArrayList<Aluno> AlunosDaTurma = new ArrayList<>();
     private Professor professorDaTurma;
     private Disciplinas disciplinaDaTurma;
     private int id;
@@ -37,11 +37,6 @@ public class Turma {
 
     public ArrayList<Aluno> getAlunosDaTurma() {
         return AlunosDaTurma;
-    }
-
-    @Override
-    public String toString() {
-        return "Turma{" + "nome=" + nome + ", status=" + status + ", AlunosDaTurma=" + AlunosDaTurma + ", professorDaTurma=" + professorDaTurma + ", disciplinaDaTurma=" + disciplinaDaTurma + '}' + "\n";
     }
 
     public void setAlunosDaTurma(ArrayList<Aluno> AlunosDaTurma) {
@@ -80,6 +75,9 @@ public class Turma {
     public void setId(int id) {
         this.id = id;
     }
-    
+        @Override
+    public String toString() {
+        return "Turma{" + "nome=" + nome + ", status=" + status + ", AlunosDaTurma=" + AlunosDaTurma + ", professorDaTurma=" + professorDaTurma + ", disciplinaDaTurma=" + disciplinaDaTurma + '}' + "\n";
+    }
 
 }

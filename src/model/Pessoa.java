@@ -10,10 +10,8 @@ package model;
  * @author Artu
  */
 public class Pessoa {
-
-    int id = 0;
-
-    int cpf, telefone;
+    
+    int cpf, telefone, id = 0;
     String nome;
     private final long matricula;
 
@@ -23,7 +21,7 @@ public class Pessoa {
         this.nome = nome;
         this.cpf = cpf;
         this.matricula = id;
-        id++;
+        id++; // incrementador do id
     }
 
     public int getTelefone() {

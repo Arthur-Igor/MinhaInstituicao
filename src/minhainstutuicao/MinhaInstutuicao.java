@@ -134,10 +134,10 @@ public class MinhaInstutuicao {
                 case 3: //3 ver turmas
                     System.out.println(" Turmas ===================================="
                             + "\n 1- Criar nova turma \n 2- Remover turma \n 3- Listar turmas  \n 4- Adicionar aluno à turma \n Digite '0' para voltar\n");
-                    int f = cadastros.verifica();
+                    int f = Cadastros.verifica();
                     switch (f) {
                         case 1:
-                            cadastros.cadastrarTurma();
+                            cadastros.criarTurma();
                             break;
 
                         case 2:
