@@ -3,9 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Scanner;
-import java.util.function.Consumer;
 
 public class Cadastros {
 
@@ -338,7 +336,7 @@ public class Cadastros {
         }
 
     }
-    
+
     public void condicoes() {
 
         try {
@@ -430,15 +428,15 @@ public class Cadastros {
                 break;
             } else {
                 idd();
-                
+
                 Historico historico = new Historico(disciplinasCadastradas.get(b), id);// cria o array de historico com as disciplinas cadastradas
-                
+
                 historicos.add(historico);
-                
+
                 if (alunosCadastradas.get(a).getHistorico1() == null) { //verifica se o slot 1 das disciplinas do aluno está vazia
 
                     alunosCadastradas.get(a).setHistorico1(historicos.get(0)); //pega o historico 0 do array de historicos e atribui a disciplina a ele
-                    
+
                     for (int d = 0; d < 2; d++) { //adicionar notas
 
                         System.err.println("\nDigite a " + d + "° nota\n");
@@ -446,15 +444,15 @@ public class Cadastros {
 
                     }
                     historicos.get(0).setNotas(notas);
-                    
+
                     System.err.println("\nNotas cadastradas\n");
 
                     break;
-                    
+
                 } else if (alunosCadastradas.get(a).getHistorico2() == null) { //verifica se o slot 2 das disciplinas do aluno está vazia
 
                     alunosCadastradas.get(a).setHistorico2(historicos.get(1));//pega o historico 1 do array de historicos e atribui a disciplina a ele
-                    
+
                     for (int d = 0; d < 2; d++) {//atribui notas
 
                         System.err.println("\nDigite a " + d + "° nota\n");
@@ -462,14 +460,14 @@ public class Cadastros {
 
                     }
                     historicos.get(1).setNotas(notas);
-                    
+
                     System.err.println("\nNotas cadastradas\n");
-                    
+
                     break;
                 } else if (alunosCadastradas.get(a).getHistorico3() == null) {//verifica se o slot 3 das disciplinas do aluno está vazia
 
                     alunosCadastradas.get(a).setHistorico3(historicos.get(2));//pega o historico 2 do array de historicos e atribui a disciplina a ele
-                    for (int d = 0; d < 2; d++) { 
+                    for (int d = 0; d < 2; d++) {
                         int l = d + 1;
                         System.err.println("\nDigite a " + l + "° nota\n");
                         notas[d] = ler.nextDouble();
@@ -480,7 +478,7 @@ public class Cadastros {
 
                     break;
                 } else {
-                    System.err.println("O aluno já tem nota em 3 disciplinas");
+                    System.err.println("O aluno já tem notas em 3 disciplinas");
                 }
 
             }
@@ -491,7 +489,7 @@ public class Cadastros {
 
     public void mostrarNota() { //mostra nota do aluno
         int matAlu, a;
-        String nome = null;
+        String nome;
         System.err.println("\n Digite a matricula do aluno:\n");
         listarAlunos();
         matAlu = verifica();
@@ -518,17 +516,14 @@ public class Cadastros {
                                 if (alunosCadastradas.get(a).GetHistoorico1(historicos.get(0).getDisciplina()).getNome().equals(nome)) { //verifica se o historico de slot 0 tem nota e pega as notas dele
                                     System.out.println("Nota 1: " + alunosCadastradas.get(a).getHistorico1().getNota1());
                                     System.out.println("Nota 2: " + alunosCadastradas.get(a).getHistorico1().getNota2());
-                                    System.err.println("h1");
                                     break;
                                 } else if (alunosCadastradas.get(a).GetHistoorico2(historicos.get(1).getDisciplina()).getNome().equals(nome)) { //verifica se o historico de slot 1 tem nota e pega as notas dele
                                     System.out.println("Nota 1: " + alunosCadastradas.get(a).getHistorico2().getNota1());
                                     System.out.println("Nota 2: " + alunosCadastradas.get(a).getHistorico2().getNota2());
-                                    System.err.println("h2");
                                     break;
                                 } else if (alunosCadastradas.get(a).GetHistoorico3(historicos.get(2).getDisciplina()).getNome().equals(nome)) { //verifica se o historico de slot 3 tem nota e pega as notas dele
                                     System.out.println("Nota 1: " + alunosCadastradas.get(a).getHistorico3().getNota1());
                                     System.out.println("Nota 2: " + alunosCadastradas.get(a).getHistorico3().getNota2());
-                                    System.err.println("h3");
                                     break;
                                 } else {
                                     System.err.println("Disciplina não encontrada");
@@ -579,6 +574,6 @@ public class Cadastros {
 
         }
         kkk = kkk1 = kkk2 = xd = xd1 = xd2 = 0;//zera os contadores
-        
+
     }
 }

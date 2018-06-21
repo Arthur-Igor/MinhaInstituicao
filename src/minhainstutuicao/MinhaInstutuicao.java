@@ -18,24 +18,22 @@ public class MinhaInstutuicao {
     /**
      * @param args the command line arguments
      */
-    private static Scanner ler;
 
     public static void main(String[] args) {
 
         int id;
         Cadastros cadastros = new Cadastros();
         boolean contador = true;
-        ler = new Scanner(System.in);
         while (contador) {
 
             System.out.println(" 1- Membros da instituição \n 2- Disciplinas  \n 3- Turmas \n Digite '0' para sair\n");// menu 1
-            int a = cadastros.verifica();
+            int a = Cadastros.verifica();
             switch (a) {
                 case 1: //Caso ver membros da instituição
                     //menu 2
                     System.out.println("Membros da instituição ===================================="
                             + "\n 1- Vincular membros \n 2- Desvincular membros  \n 3- Listar membros \n 4 - Listar professores \n 5 - Listar alunos \n 6 - Adicionar nota a aluno \n 7 - Mostrar nota do aluno\n 8 - Mostrar media geral do aluno \n digite '0' para voltar.\n");
-                    int b = ler.nextInt();
+                    int b = Cadastros.verifica();
                     switch (b) {//menu 3
                         case 1:
                             System.out.println(" Vincular membros ===================================="
@@ -112,7 +110,7 @@ public class MinhaInstutuicao {
                     //menu 6
                     System.out.println(" Disciplinas===================================="
                             + "\n 1-Criar nova disciplina \n 2- Remover disciplina exitente \n 3- Listar disciplinas \n Digite '0' para voltar\n");
-                    int e = cadastros.verifica();
+                    int e = Cadastros.verifica();
                     switch (e) {
                         case 1:
                             cadastros.cadastrarDisciplinas();
